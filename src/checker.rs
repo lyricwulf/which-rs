@@ -22,7 +22,7 @@ impl Checker for ExecutableChecker {
             .unwrap_or(false)
     }
 
-    #[cfg(windows)]
+    #[cfg(any(windows, target_family = "wasm"))]
     fn is_valid(&self, _path: &Path) -> bool {
         true
     }

@@ -138,7 +138,7 @@ impl Finder {
         Self::append_extension(new_paths)
     }
 
-    #[cfg(unix)]
+    #[cfg(any(unix, target_family = "wasm"))]
     fn append_extension<P>(paths: P) -> impl IntoIterator<Item = PathBuf>
     where
         P: IntoIterator<Item = PathBuf>,
